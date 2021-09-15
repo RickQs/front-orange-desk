@@ -11,6 +11,7 @@ import DeskInstructions from './Pages/DeskInstructions/DeskInstructions';
 import SelectDesk from './Pages/SelectDesk/SelectDesk';
 import Review from './Pages/Review/Review';
 import Confirmation from './Pages/Confirmation/Confirmation';
+import MySchedules from './Pages/MySchedules/MySchedules';
 
 // Importing Components:
 
@@ -37,7 +38,7 @@ function App() {
           <Route path='/review' exact component={ Review } />
           <Route path='/confirmation' exact component={ Confirmation } />
           <Route path="/adm/criar" exact component={ Adm } />
-          <Route path="/adm/home" exact component={ HomeAdm } />
+          <Route path="/myschedules" exact component={ MySchedules } />
         </Switch>
         
       </Router>
