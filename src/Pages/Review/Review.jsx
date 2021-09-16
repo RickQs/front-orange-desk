@@ -27,6 +27,14 @@ const Review = () => {
 
     const history = useHistory()
 
+    const [checked, setChecked] = useState(false);
+
+    const HandleCheckbox = () => setChecked(!checked);
+    useEffect(() => {
+        const btnConfirm = document.getElementById('btnConfirm');
+        checked ? btnConfirm.removeAttribute('disabled') : btnConfirm.setAttribute('disabled', '');
+    }, [HandleCheckbox])
+
     var config = {
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -130,7 +138,8 @@ const Review = () => {
                                                 <input type='checkbox'
                                                     id='btnCheck'
                                                     className={'fw__light checkbox-size shadow-none'}
-                                                    required />
+                                                    required
+                                                    onClick={HandleCheckbox} />
                                             </div>
                                             <div className="col-10">
                                                 <label for='' className='text-grey fs-10 fw__light'>
@@ -140,7 +149,7 @@ const Review = () => {
                                         </div>
                                     </div>
 
-                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mt-lg-5 mb-2' onClick={onSubmit}>Confirmar agendamento</button>
+                                    <button disabled id='btnConfirm' className='btn-orange w-100 mt-3 mt-lg-5 mb-2' onClick={onSubmit}>Confirmar agendamento</button>
                                 </div>
                             </div>
                         </div>
